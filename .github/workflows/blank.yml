@@ -30,7 +30,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          ls -la
+          sudo modprobe virtio-lo
+          
+          sudo modprobe virtio_gpu
+          
+          rvgpu-renderer -b 1280x720@0,0 -p 55667
 
   build_2:
        runs-on: self-hosted
@@ -40,4 +44,6 @@ jobs:
           - name: Run a new cmd
             run: |
               cd /home/tinhembedded
-              ls -l
+              sudo rm -rf /run/user/0
+              sudo mkdir -p /run/user/0
+
