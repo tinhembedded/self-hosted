@@ -31,12 +31,7 @@ jobs:
       - name: Run a one-line script
         run: |
           ls -la
-          sudo modprobe virtio-lo
-          sudo modprobe virtio_gpu
-          
-          lsmod | grep virtio
-          
-          rvgpu-renderer -b 1280x720@0,0 -p 55667
+
   build_2:
        runs-on: self-hosted
        steps: 
