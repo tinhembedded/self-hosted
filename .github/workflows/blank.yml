@@ -31,6 +31,12 @@ jobs:
       - name: Run a one-line script
         run: |
           ls -la
+          sudo modprobe virtio-lo
+          sudo modprobe virtio_gpu
+          
+          lsmod | grep virtio
+          
+          rvgpu-renderer -b 1280x720@0,0 -p 55667
   build_2:
        runs-on: self-hosted
        steps: 
@@ -38,5 +44,12 @@ jobs:
       # Runs a single command using the runners shell
           - name: Run a new cmd
             run: |
-              cd /home
-              ls -la
+              cd /home/tinhembedded
+              
+              sudo su
+              rm -rf /run/user/0
+              mkdir -p /run/user/0
+              export XDG_RUNTIME_DIR=/run/user/0
+              rvgpu-proxy -l 0 -s 1280x720@0,0 -n 127.0.0.1 &
+              export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
+              weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 --log=/tmp/weston.log &
