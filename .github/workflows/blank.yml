@@ -32,8 +32,6 @@ jobs:
                 rvgpu-renderer -b 1280x720@0,0 -p 55667 &
                 
                 sudo su
-                rm -rf /run/user/0
-                mkdir -p /run/user/0
                 export XDG_RUNTIME_DIR=/run/user/0
                 rvgpu-proxy -l 0 -s 1280x720@0,0 -n 127.0.0.1:55667 &
                 export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
