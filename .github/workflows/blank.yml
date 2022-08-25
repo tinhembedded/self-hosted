@@ -31,11 +31,10 @@ jobs:
                 
                 rvgpu-renderer -b 1280x720@0,0 -p 55667 &
                 
-                sudo su
                 export XDG_RUNTIME_DIR=/run/user/0
-                rvgpu-proxy -s 1280x720@0,0 -n 127.0.0.1:55667 &
+                sudo rvgpu-proxy -s 1280x720@0,0 -n 127.0.0.1:55667 &
                 export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
-                weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 --log=/tmp/weston.log &
+                sudo weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 --log=/tmp/weston.log &
                 
                 glmark2-es2-wayland
             
