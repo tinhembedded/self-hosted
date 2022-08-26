@@ -24,7 +24,7 @@ jobs:
        steps: 
 
       # Runs a single command using the runners shell
-          - name: Run a new caaas
+          - name: Run a new caaask
             run: |
                 rvgpu-renderer -b 1280x720@0,0 -p 55667 &
                 sudo rm -rf /run/user/0
