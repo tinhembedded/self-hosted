@@ -26,6 +26,8 @@ jobs:
       # Runs a single command using the runners shell
           - name: Run a new caaask
             run: |
+                sudo modprobe virtio_gpu
+                sudo modprobe virtio-lo
                 rvgpu-renderer -b 1280x720@0,0 -p 55667 &
                 sudo rm -rf /run/user/0
                 sudo mkdir -p /run/user/0
@@ -34,7 +36,7 @@ jobs:
                 #export LD_LIBRARY_PATH=/usr/lib/mesa-virtio
                 sudo weston --backend drm-backend.so --tty=2 --seat=seat_virtual -i 0 &
                 
-                glmark2-es2-wayland
+                sudo glmark2-es2-wayland
             
 
 
