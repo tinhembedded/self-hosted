@@ -24,7 +24,7 @@ jobs:
        steps: 
 
       # Runs a single command using the runners shell
-          - name: Run a new cmd 1
+          - name: Run a new cm
             run: |
                 sudo modprobe virtio-lo
                 sudo modprobe virtio_gpu
