@@ -26,6 +26,7 @@ jobs:
       # Runs a single command using the runners shell
           - name: Run a new cmd
             run: |
+                ls -la
                 sudo modprobe virtio-lo
                 sudo modprobe virtio_gpu
                 
