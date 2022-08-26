@@ -26,8 +26,7 @@ jobs:
       # Runs a single command using the runners shell
           - name: Run a new ca
             run: |
-                
-                #rvgpu-renderer -b 1280x720@0,0 -p 55668 &
+              
                 sudo rm -rf /run/user/0
                 sudo mkdir -p /run/user/0
                 #export XDG_RUNTIME_DIR=/run/user/0
