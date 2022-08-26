@@ -24,7 +24,7 @@ jobs:
        steps: 
 
       # Runs a single command using the runners shell
-          - name: Run a new caaask
+          - name: Run a new ca
             run: |
                 sudo modprobe virtio_gpu
                 sudo modprobe virtio-lo
